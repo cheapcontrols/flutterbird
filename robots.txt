@@ -1,0 +1,9 @@
+User-Agent: *
+Disallow: /a_dev_images
+Disallow: /a_font
+Disallow: /css
+Disallow: /a_font
+Disallow: /images
+Disallow: /js
+Disallow:/php
+Disallow: /video
