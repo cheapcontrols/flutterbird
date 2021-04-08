@@ -7,8 +7,8 @@
 
 /*  CSS variables or custom properties */
 :root{
-	--ff-primary: arial;
-	--ff-secondary: tahoma;
+	--ff-primary: Times;
+	--ff-secondary: serif;
 	
 	--fw-reg: 300;
 	--fw-bold: 900;
@@ -24,10 +24,11 @@
 	--fs-h2: 1.75rem;
 	--fs-h3: 1.25rem;
 	--fs-body: 1.1rem;
-
+	/* box shadow */
 	--bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
 				0.125em 0.125em 0.25em rgba(0,0,0,.15);
 }
+/* screen width greater than 800px */
 @media (min-width: 800px){
 	:root{
 		--fs-h1: 3.5rem;
@@ -38,26 +39,37 @@
 }
 
 /*   END CSS variables or custom properties */
-
 html {
 	background: url(../images/background.png) repeat;
   background-color: #333;
 }
-
 body {
 	display: block;
 	color: #fff;
-	font-family: Times New Roman, serif;
+	font-family: var(--ff-primary),var(--ff-secondary);
   background: url(../images/body_thin.png) repeat;
-	width: 1200px;
-	margin: 0 auto;
+	width: 100%;
+	margin: 0;
 	border: none;
 }
+/**************   Greater than 600 px  ************************/
+@media screen and (min-width: 600px){
+	body {
+		width: 95%;
+		margin: 0 auto;
+	}
+}
+/**************   Greater than 1350 px  ************************/
+@media screen and (min-width: 1350px){
+	body {
+		width: 1200px;
+		margin: 0 auto;
+	}
+}	
 img{
 	display: block;
 	width: 100%;
 }
-
 h1,h2,h3{
 	line-height: 1em;
 }
@@ -75,9 +87,7 @@ p{
 	line-height: 1.4em;
 	color: var(--clr-dk-text);
 }
-
 /*/////////////////////  HEADER  /////////////////////////////*/
-
 header {
 	height: 200px;
 	width: 100%;
@@ -92,14 +102,11 @@ header img{
 	padding: 8px;
 }
 
-
 /*/////////////////////  NAVIGATION  /////////////////////////////*/
-
 nav ul {
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
-	/* background: url(../images/nav_thin.png) repeat; */
 	background-color: var(--clr-accent);
 	text-align: center;
 	font-size: 1.3em;
@@ -110,7 +117,6 @@ nav ul {
 	border-top: var(--clr-green) 5px solid;
 	border-bottom: var(--clr-green) 5px solid;
 }
-
 nav ul li {
 	display: inline-block;
 	border-bottom: var(--clr-green) 5px solid;
@@ -118,7 +124,6 @@ nav ul li {
 	padding: .5em 0 0;
 	margin: .5em 1em 0;
 }
-
 nav ul li a {
 	display:inline-block;
 	min-width:240px;
@@ -127,22 +132,7 @@ nav ul li a {
 	text-transform: uppercase;
 	text-decoration: none;
 }
-
-nav ul li a:hover {
-	color: var(--clr-hover-text) !important; 
-}
-
-nav ul li a.selected {
-	color: #000 !important;   
-}
-
-nav ul li a#nav_sel {
-	color: #000 !important;   
-}
-
-nav ul li a.selected:hover {
-	color: #FFF !important;
-}
+/* greater than 800px */
 @media (min-width: 800px){
 	nav ul li a {
 		font-size: 2rem;
@@ -150,9 +140,21 @@ nav ul li a.selected:hover {
 		text-decoration: none;
 		min-width: 300px;
 	}
-	}
-/*/////////////////////  BODY STUFF  /////////////////////////////*/
+}
+nav ul li a:hover {
+	color: var(--clr-hover-text) !important; 
+}
+nav ul li a.selected {
+	color: #000 !important;   
+}
+nav ul li a#nav_sel {
+	color: #000 !important;   
+}
+nav ul li a.selected:hover {
+	color: #FFF !important;
+}
 
+/*/////////////////////  BODY STUFF  /////////////////////////////*/
 #content{
 	position: relative;
 	width: 100%;
@@ -165,7 +167,6 @@ nav ul li a.selected:hover {
 #content h2{
 	margin-top: 1em;
 }
-
 #content img{
 	position: relative;
 	display: block;
@@ -173,7 +174,7 @@ nav ul li a.selected:hover {
 	margin: 20px auto;
 	border: 2px solid #777777;
 	border-radius: 15px;
-	box-shadow: 3px 3px 3px #777777;
+	box-shadow: var(--bs);
 	max-width: 400px;
 	background-color: #fff;
 	width:50%;
@@ -199,16 +200,27 @@ nav ul li a.selected:hover {
 #signature a:hover {
 	color: var(--clr-hover-text) !important; 
 }
-
 video{
-	max-width: 640px;
 	height: auto;
+	max-width: 320px;
 	border: 3px solid var(--clr-hover-text);
 	border-radius: 10px;
 }
 
-/*/////////////////////// FAQ ////////////////////////////////*/
+/**************   Greater than 600 px  ************************/
+@media screen and (min-width: 600px){
+	video{
+		max-width: 480px;
+	}	
+}
+/**************   Greater than 1350 px  ************************/
+@media screen and (min-width: 1350px){
+	video{
+		max-width: 640px;
+	}	
+}	
 
+/*/////////////////////// FAQ ////////////////////////////////*/
 .faq{
 	width: 80%;
 	margin: 1em auto;
@@ -219,7 +231,6 @@ video{
 }
 
 /*/////////////////////  FOOTER  /////////////////////////////*/
-
 footer {
 	display: flex;
 	flex-wrap: wrap;
@@ -230,14 +241,12 @@ footer {
 	border: none;
 	padding: 0 0 25px 0;
 }
-
 footer p {
 	width: 100%;
 	text-align: center;
 	margin: 6px 0 0 0;
 	padding: 0;
 }
-
 footer ul {
 	list-style: none;
 	width: 100%;
@@ -245,47 +254,21 @@ footer ul {
 	margin: 6px 0 0 0;
 	padding: 0;
 }
-
 footer ul li {
 	display: inline;
 	margin: 0 5px;
 	border: none;
 }
-
 footer ul li a {
 	color: #FFFFFF;
 	text-decoration: none;
 }
-
 footer ul li a:hover {
 	color: var(--clr-hover-text);
 }
-
 footer ul li a.selected{
 	color: #000000;
 }
-
 footer ul li a.selected:hover {
 	color: #fff;
-}
-	
-/**************   Smaller than 1000 px  ************************/
-@media screen and (max-width: 1350px){
-	body {
-		width: 95%;
-		margin: 0 auto;
-	}
-	video{
-		max-width: 480px;
-	}	
-}	
-/**************   Smaller than 600 px  ************************/
-@media screen and (max-width: 600px){
-	body {
-		width: 100%;
-		margin: 0;
-	}
-	video{
-		max-width: 320px;
-	}	
 }
